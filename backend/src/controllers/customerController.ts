@@ -1,0 +1,24 @@
+import { Request, Response, NextFunction } from 'express';
+
+import CustomerService from '../services/customerService';
+
+export default class CustomerController {
+  private customerService: CustomerService;
+
+  public constructor() {
+    this.customerService = new CustomerService();
+  }
+
+  public async create(req: Request, res: Response, next: NextFunction) {
+    try {
+      const customer = req.body;
+      const response = await this.customerService.create(customer);
+      res.status(201).json({
+        message: 'Customer created successfully',
+        data: response,
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+}
