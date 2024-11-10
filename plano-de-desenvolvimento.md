@@ -7,7 +7,7 @@
 - [x] Configurar o banco de dados SQLite
 - [x] Criar um modelo de cliente com campos como ID, name, CPF, phone, email e status
 - [ ] Implementar endpoints da API:
-  - [ ] `GET /clientes`
+  - [x] `GET /clientes`
   - [x] `POST /clientes`
   - [ ] `PUT /clientes/:id`
 - [ ] Implementar validação de dados (CPF e telefone) no backend
