@@ -2,8 +2,8 @@
 
 ## Backend
 
-- [ ] Configurar o ambiente de desenvolvimento
-- [ ] Configurar o backend com Node.js e Express
+- [x] Configurar o ambiente de desenvolvimento
+- [x] Configurar o backend com Node.js e Express
 - [ ] Configurar o banco de dados SQLite
 - [ ] Criar um modelo de cliente com campos como ID, name, CPF, phone, email e status
 - [ ] Implementar endpoints da API:
