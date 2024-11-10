@@ -15,4 +15,8 @@ export default class CustomerService {
   public async findById(id: number) {
     return await this.customerRepository.findById(id);
   }
+
+  public async findAll() {
+    return await this.customerRepository.findAll();
+  }
 }

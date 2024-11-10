@@ -54,4 +54,17 @@ export default class CustomerRepository implements ICustomerRepository {
 
     return await this.db.get(query.text, query.values);
   }
+
+  public async findAll(): Promise<CustomerType[]> {
+    const query = {
+      text: 'SELECT * FROM customers',
+      values: [],
+    };
+
+    if (!this.db) {
+      throw new Error('Database not initialized');
+    }
+
+    return await this.db.all(query.text, query.values);
+  }
 }
