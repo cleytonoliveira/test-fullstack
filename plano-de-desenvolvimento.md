@@ -4,11 +4,11 @@
 
 - [x] Configurar o ambiente de desenvolvimento
 - [x] Configurar o backend com Node.js e Express
-- [ ] Configurar o banco de dados SQLite
-- [ ] Criar um modelo de cliente com campos como ID, name, CPF, phone, email e status
+- [x] Configurar o banco de dados SQLite
+- [x] Criar um modelo de cliente com campos como ID, name, CPF, phone, email e status
 - [ ] Implementar endpoints da API:
   - [ ] `GET /clientes`
-  - [ ] `POST /clientes`
+  - [x] `POST /clientes`
   - [ ] `PUT /clientes/:id`
 - [ ] Implementar validação de dados (CPF e telefone) no backend
 - [ ] Escrever testes de API (opcional)
