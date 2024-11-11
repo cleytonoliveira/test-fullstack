@@ -10,8 +10,8 @@
   - [x] `GET /clientes`
   - [x] `POST /clientes`
   - [x] `PUT /clientes/:id`
-- [ ] Implementar validação de dados (CPF e telefone) no backend
-- [ ] Escrever testes de API (opcional)
+- [x] Implementar validação de dados (CPF e telefone) no backend
+- [x] Escrever testes de API (opcional)
 
 ## Frontend
 
