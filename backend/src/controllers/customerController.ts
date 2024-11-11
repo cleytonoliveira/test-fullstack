@@ -33,4 +33,18 @@ export default class CustomerController {
       next(error);
     }
   }
+
+  public async update(req: Request, res: Response, next: NextFunction) {
+    try {
+      const id = parseInt(req.params.id);
+      const customer = req.body;
+      const response = await this.customerService.update(id, customer);
+      res.status(200).json({
+        message: 'Customer updated successfully',
+        data: response,
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
 }

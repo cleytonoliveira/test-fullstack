@@ -6,10 +6,10 @@
 - [x] Configurar o backend com Node.js e Express
 - [x] Configurar o banco de dados SQLite
 - [x] Criar um modelo de cliente com campos como ID, name, CPF, phone, email e status
-- [ ] Implementar endpoints da API:
+- [x] Implementar endpoints da API:
   - [x] `GET /clientes`
   - [x] `POST /clientes`
-  - [ ] `PUT /clientes/:id`
+  - [x] `PUT /clientes/:id`
 - [ ] Implementar validação de dados (CPF e telefone) no backend
 - [ ] Escrever testes de API (opcional)
 

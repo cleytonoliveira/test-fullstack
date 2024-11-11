@@ -67,4 +67,33 @@ export default class CustomerRepository implements ICustomerRepository {
 
     return await this.db.all(query.text, query.values);
   }
+
+  public async update(
+    id: number,
+    customer: CustomerType,
+  ): Promise<CustomerType | undefined> {
+    const query = {
+      text: `UPDATE customers SET name = ?, email = ?, cpf = ?, phone = ?, status = ? WHERE id = ?`,
+      values: [
+        customer.name,
+        customer.email,
+        customer.cpf,
+        customer.phone,
+        customer.status,
+        id,
+      ],
+    };
+
+    if (!this.db) {
+      throw new Error('Database not initialized');
+    }
+
+    const result = await this.db.run(query.text, query.values);
+
+    if (result.lastID) {
+      return await this.findById(id);
+    } else {
+      throw new Error('Customer not updated');
+    }
+  }
 }

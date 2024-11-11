@@ -19,4 +19,8 @@ export default class CustomerService {
   public async findAll() {
     return await this.customerRepository.findAll();
   }
+
+  public async update(id: number, customer: CustomerType) {
+    return await this.customerRepository.update(id, customer);
+  }
 }
