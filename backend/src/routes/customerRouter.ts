@@ -4,6 +4,7 @@ import CustomerController from '../controllers/customerController';
 import { validateFields } from '../middlewares/validateFields';
 import { emailValidator } from '../middlewares/emailValidator';
 import cpfValidator from '../middlewares/cpfValidator';
+import { phoneValidator } from '../middlewares/phoneValidator';
 
 const router = express.Router();
 const customerController = new CustomerController();
@@ -14,6 +15,7 @@ router.post(
   validateFields,
   emailValidator,
   cpfValidator,
+  phoneValidator,
   customerController.create.bind(customerController),
 );
 router.put(
@@ -21,6 +23,7 @@ router.put(
   validateFields,
   emailValidator,
   cpfValidator,
+  phoneValidator,
   customerController.update.bind(customerController),
 );
 
