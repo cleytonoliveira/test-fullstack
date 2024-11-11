@@ -32,6 +32,81 @@ describe('POST to /customers', () => {
       },
     });
   });
+
+  it('should return 400 and a message when creating a customer with missing status', async () => {
+    const response = await request(app).post('/customers').send({
+      name: 'John Doe',
+      email: 'john_doe@test.com',
+      cpf: '123.456.789-00',
+      phone: '(11) 9998-8743',
+    });
+
+    expect(response.status).toBe(400);
+    expect(response.body).toHaveProperty('message');
+    expect(response.body).toStrictEqual({
+      message: 'All fields must be filled',
+    });
+  });
+
+  it('should return 400 and a message when creating a customer with missing phone', async () => {
+    const response = await request(app).post('/customers').send({
+      name: 'John Doe',
+      email: 'john_doe@test.com',
+      cpf: '123.456.789-00',
+      status: 'active',
+    });
+
+    expect(response.status).toBe(400);
+    expect(response.body).toHaveProperty('message');
+    expect(response.body).toStrictEqual({
+      message: 'All fields must be filled',
+    });
+  });
+
+  it('should return 400 and a message when creating a customer with missing cpf', async () => {
+    const response = await request(app).post('/customers').send({
+      name: 'John Doe',
+      email: 'john_doe@test.com',
+      phone: '(11) 9998-8743',
+      status: 'active',
+    });
+
+    expect(response.status).toBe(400);
+    expect(response.body).toHaveProperty('message');
+    expect(response.body).toStrictEqual({
+      message: 'All fields must be filled',
+    });
+  });
+
+  it('should return 400 and a message when creating a customer with missing email', async () => {
+    const response = await request(app).post('/customers').send({
+      name: 'John Doe',
+      cpf: '123.456.789-00',
+      phone: '(11) 9998-8743',
+      status: 'active',
+    });
+
+    expect(response.status).toBe(400);
+    expect(response.body).toHaveProperty('message');
+    expect(response.body).toStrictEqual({
+      message: 'All fields must be filled',
+    });
+  });
+
+  it('should return 400 and a message when creating a customer with missing name', async () => {
+    const response = await request(app).post('/customers').send({
+      email: 'john_doe@test.com',
+      cpf: '123.456.789-00',
+      phone: '(11) 9998-8743',
+      status: 'active',
+    });
+
+    expect(response.status).toBe(400);
+    expect(response.body).toHaveProperty('message');
+    expect(response.body).toStrictEqual({
+      message: 'All fields must be filled',
+    });
+  });
 });
 
 describe('GET to /customers', () => {
@@ -93,6 +168,81 @@ describe('PUT to /customers/:id', () => {
         phone: '(11) 9998-8743',
         status: 'inactive',
       },
+    });
+  });
+
+  it('should return 400 and a message when updating a customer with missing status', async () => {
+    const response = await request(app).put('/customers/1').send({
+      name: 'John Doe',
+      email: 'john_doe@test.com',
+      cpf: '123.456.789-00',
+      phone: '(11) 9998-8743',
+    });
+
+    expect(response.status).toBe(400);
+    expect(response.body).toHaveProperty('message');
+    expect(response.body).toStrictEqual({
+      message: 'All fields must be filled',
+    });
+  });
+
+  it('should return 400 and a message when updating a customer with missing phone', async () => {
+    const response = await request(app).put('/customers/1').send({
+      name: 'John Doe',
+      email: 'john_doe@test.com',
+      cpf: '123.456.789-00',
+      status: 'active',
+    });
+
+    expect(response.status).toBe(400);
+    expect(response.body).toHaveProperty('message');
+    expect(response.body).toStrictEqual({
+      message: 'All fields must be filled',
+    });
+  });
+
+  it('should return 400 and a message when updating a customer with missing cpf', async () => {
+    const response = await request(app).put('/customers/1').send({
+      name: 'John Doe',
+      email: 'john_doe@test.com',
+      phone: '(11) 9998-8743',
+      status: 'active',
+    });
+
+    expect(response.status).toBe(400);
+    expect(response.body).toHaveProperty('message');
+    expect(response.body).toStrictEqual({
+      message: 'All fields must be filled',
+    });
+  });
+
+  it('should return 400 and a message when updating a customer with missing email', async () => {
+    const response = await request(app).put('/customers/1').send({
+      name: 'John Doe',
+      cpf: '123.456.789-00',
+      phone: '(11) 9998-8743',
+      status: 'active',
+    });
+
+    expect(response.status).toBe(400);
+    expect(response.body).toHaveProperty('message');
+    expect(response.body).toStrictEqual({
+      message: 'All fields must be filled',
+    });
+  });
+
+  it('should return 400 and a message when updating a customer with missing name', async () => {
+    const response = await request(app).put('/customers/1').send({
+      email: 'john_doe@test.com',
+      cpf: '123.456.789-00',
+      phone: '(11) 9998-8743',
+      status: 'active',
+    });
+
+    expect(response.status).toBe(400);
+    expect(response.body).toHaveProperty('message');
+    expect(response.body).toStrictEqual({
+      message: 'All fields must be filled',
     });
   });
 });
