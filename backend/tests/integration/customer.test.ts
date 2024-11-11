@@ -132,7 +132,7 @@ describe('Customer API', () => {
     it('should return 400 and a message when creating a customer with invalid cpf', async () => {
       const response = await request(app).post('/customers').send({
         name: 'John Doe',
-        email: 'john_doe@mail.com',
+        email: 'john_doe@test.com',
         cpf: '123.456.789-01',
         phone: '(11) 9998-8743',
         status: 'active',
@@ -142,6 +142,22 @@ describe('Customer API', () => {
       expect(response.body).toHaveProperty('message');
       expect(response.body).toStrictEqual({
         message: 'Invalid CPF',
+      });
+    });
+
+    it('should return 400 and a message when creating a customer with invalid phone', async () => {
+      const response = await request(app).post('/customers').send({
+        name: 'John Doe',
+        email: 'john_doe@test.com',
+        cpf: validCpf,
+        phone: '987654321',
+        status: 'active',
+      });
+
+      expect(response.status).toBe(400);
+      expect(response.body).toHaveProperty('message');
+      expect(response.body).toStrictEqual({
+        message: 'Invalid phone number',
       });
     });
   });
@@ -312,6 +328,22 @@ describe('Customer API', () => {
       expect(response.body).toHaveProperty('message');
       expect(response.body).toStrictEqual({
         message: 'Invalid CPF',
+      });
+    });
+
+    it('should return 400 and a message when updating a customer with invalid phone', async () => {
+      const response = await request(app).put('/customers/1').send({
+        name: 'John Doe',
+        email: 'john_doe@test.com',
+        cpf: validCpf,
+        phone: '987654321',
+        status: 'active',
+      });
+
+      expect(response.status).toBe(400);
+      expect(response.body).toHaveProperty('message');
+      expect(response.body).toStrictEqual({
+        message: 'Invalid phone number',
       });
     });
   });
