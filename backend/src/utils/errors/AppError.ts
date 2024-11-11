@@ -1,8 +1,14 @@
-export abstract class AppError extends Error {
+export class AppError extends Error {
   public readonly statusCode: number;
 
-  constructor(message: string, statusCode: number = 400) {
+  constructor(message: string, statusCode: number) {
     super(message);
     this.statusCode = statusCode;
+  }
+}
+
+export class BadRequest extends AppError {
+  constructor(message: string) {
+    super(message, 400);
   }
 }
