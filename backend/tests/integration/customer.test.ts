@@ -107,6 +107,22 @@ describe('POST to /customers', () => {
       message: 'All fields must be filled',
     });
   });
+
+  it('should return 400 and a message when creating a customer with invalid email', async () => {
+    const response = await request(app).post('/customers').send({
+      name: 'John Doe',
+      email: 'john_doe',
+      cpf: '123.456.789-00',
+      phone: '(11) 9998-8743',
+      status: 'active',
+    });
+
+    expect(response.status).toBe(400);
+    expect(response.body).toHaveProperty('message');
+    expect(response.body).toStrictEqual({
+      message: 'Invalid email format',
+    });
+  });
 });
 
 describe('GET to /customers', () => {
@@ -243,6 +259,22 @@ describe('PUT to /customers/:id', () => {
     expect(response.body).toHaveProperty('message');
     expect(response.body).toStrictEqual({
       message: 'All fields must be filled',
+    });
+  });
+
+  it('should return 400 and a message when updating a customer with invalid email', async () => {
+    const response = await request(app).put('/customers/1').send({
+      name: 'John Doe',
+      email: 'john_doe',
+      cpf: '123.456.789-00',
+      phone: '(11) 9998-8743',
+      status: 'active',
+    });
+
+    expect(response.status).toBe(400);
+    expect(response.body).toHaveProperty('message');
+    expect(response.body).toStrictEqual({
+      message: 'Invalid email format',
     });
   });
 });
