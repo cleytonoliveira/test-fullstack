@@ -33,6 +33,7 @@
     "typescript-eslint": "^8.13.0"
   },
   "dependencies": {
+    "email-validator": "^2.0.4",
     "express": "^4.21.1",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7"

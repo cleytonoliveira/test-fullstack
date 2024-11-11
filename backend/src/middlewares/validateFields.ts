@@ -9,7 +9,7 @@ export const validateFields = async (
   const { name, email, cpf, phone, status } = req.body;
 
   if (!name || !email || !cpf || !phone || !status) {
-    next(new BadRequest('All fields must be filled'));
+    return next(new BadRequest('All fields must be filled'));
   }
-  next();
+  return next();
 };
