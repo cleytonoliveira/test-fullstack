@@ -5,9 +5,9 @@ describe('POST to /customers', () => {
   it('should return 201 and a message when creating a customer', async () => {
     const response = await request(app).post('/customers').send({
       name: 'John Doe',
-      email: 'john@mail.com',
-      cpf: '123.456.789-11',
-      phone: '1234567891',
+      email: 'john_doe@test.com',
+      cpf: '123.456.789-00',
+      phone: '(11) 9998-8743',
       status: 'active',
     });
 
@@ -25,9 +25,9 @@ describe('POST to /customers', () => {
       data: {
         id: 1,
         name: 'John Doe',
-        email: 'john@mail.com',
-        cpf: '123.456.789-11',
-        phone: '1234567891',
+        email: 'john_doe@test.com',
+        cpf: '123.456.789-00',
+        phone: '(11) 9998-8743',
         status: 'active',
       },
     });
@@ -54,12 +54,45 @@ describe('GET to /customers', () => {
         {
           id: 1,
           name: 'John Doe',
-          email: 'john@mail.com',
-          cpf: '123.456.789-11',
-          phone: '1234567891',
+          email: 'john_doe@test.com',
+          cpf: '123.456.789-00',
+          phone: '(11) 9998-8743',
           status: 'active',
         },
       ],
+    });
+  });
+});
+
+describe('PUT to /customers/:id', () => {
+  it('should return 200 and a message when updating a customer', async () => {
+    const response = await request(app).put('/customers/1').send({
+      name: 'John Doe Updated',
+      email: 'john_doe@test.com',
+      cpf: '123.456.789-00',
+      phone: '(11) 9998-8743',
+      status: 'inactive',
+    });
+
+    expect(response.status).toBe(200);
+    expect(response.body).toHaveProperty('message');
+    expect(response.body).toHaveProperty('data');
+    expect(response.body.data).toHaveProperty('id');
+    expect(response.body.data).toHaveProperty('name');
+    expect(response.body.data).toHaveProperty('email');
+    expect(response.body.data).toHaveProperty('cpf');
+    expect(response.body.data).toHaveProperty('phone');
+    expect(response.body.data).toHaveProperty('status');
+    expect(response.body).toStrictEqual({
+      message: 'Customer updated successfully',
+      data: {
+        id: 1,
+        name: 'John Doe Updated',
+        email: 'john_doe@test.com',
+        cpf: '123.456.789-00',
+        phone: '(11) 9998-8743',
+        status: 'inactive',
+      },
     });
   });
 });
