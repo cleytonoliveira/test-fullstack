@@ -16,7 +16,7 @@
 ## Frontend
 
 - [x] Configurar o frontend com React
-- [ ] Desenvolver a tela de listagem de clientes
+- [x] Desenvolver a tela de listagem de clientes
 - [ ] Desenvolver a tela de criação de cliente
   - [ ] Configurar validação de campos (CPF e telefone)
 - [ ] Desenvolver a tela de edição de cliente

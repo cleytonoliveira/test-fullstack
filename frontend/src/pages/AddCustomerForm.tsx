@@ -18,7 +18,7 @@ export default function AddCustomerForm() {
         <Input type={"text"} placeholder={"Telefone"} />
         <Select id={"teste"} options={options} />
         <Button title={"Criar"} path={"/"} />
-        <Button title={"Voltar"} path={"/"} />
+        <Button title={"Voltar"} path={"/clientes"} />
       </form>
     </main>
   );
