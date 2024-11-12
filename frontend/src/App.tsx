@@ -1,11 +1,16 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
+
 import AddCustomerForm from "./pages/AddCustomerForm";
 import Home from "./pages/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Navigate to="/clientes" replace />,
   },
   {
     path: "/clientes",

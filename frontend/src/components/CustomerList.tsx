@@ -1,19 +1,13 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 import { getCustomers } from "../services/customerService";
 import { CustomerCard } from "./CustomerCard";
-
-type Customer = {
-  id: number;
-  name: string;
-  email: string;
-  cpf: string;
-  phone: string;
-  status: string;
-};
+import { Customer } from "../types/Customer";
 
 export const CustomerList: React.FC = () => {
   const [customers, setCustomers] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     const fetchCustomers = async () => {
@@ -24,20 +18,25 @@ export const CustomerList: React.FC = () => {
         console.error("Erro ao buscar os clientes", error);
       }
     };
-    fetchCustomers();
-  }, []);
 
-  return customers.map((customer: Customer) => (
+    if (location.state?.shouldUpdate) {
+      fetchCustomers();
+    }
+  }, [location.state]);
+
+  return (
     <>
-      <CustomerCard
-        key={customer.id}
-        id={customer.id}
-        name={customer.name}
-        email={customer.email}
-        cpf={customer.cpf}
-        phone={customer.phone}
-        status={customer.status}
-      />
+      {customers.map((customer: Customer) => (
+        <CustomerCard
+          key={customer.id}
+          id={customer.id}
+          name={customer.name}
+          email={customer.email}
+          cpf={customer.cpf}
+          phone={customer.phone}
+          status={customer.status}
+        />
+      ))}
       <p>
         Exibindo{" "}
         {customers.length === 1
@@ -45,5 +44,5 @@ export const CustomerList: React.FC = () => {
           : `${customers.length} clientes`}
       </p>
     </>
-  ));
+  );
 };
