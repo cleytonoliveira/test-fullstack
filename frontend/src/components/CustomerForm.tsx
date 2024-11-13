@@ -78,7 +78,7 @@ export const CustomerForm = () => {
   }, [customerId]);
 
   return (
-    <form>
+    <form className="pt-6">
       <Input
         defaultValue={name}
         type={"text"}
@@ -108,19 +108,21 @@ export const CustomerForm = () => {
         options={options}
         handleChange={handleStatusChange}
       />
-      <Button
-        title={customerId ? "Editar" : "Criar"}
-        path={"/clientes"}
-        onClick={handleCustomerSubmit}
-        style="bg-koji-orange text-white w-32 h-10 rounded-lg"
-      />
-      <Button
-        title={"Voltar"}
-        path={"/clientes"}
-        style={
-          "text-koji-orange border-2 border-koji-orange w-32 h-10 rounded-lg hover:bg-koji-orange hover:text-white"
-        }
-      />
+      <div className="mt-16 space-x-4">
+        <Button
+          title={customerId ? "Editar" : "Criar"}
+          path={"/clientes"}
+          onClick={handleCustomerSubmit}
+          style="bg-koji-orange text-white w-32 h-10 rounded-lg"
+        />
+        <Button
+          title={"Voltar"}
+          path={"/clientes"}
+          style={
+            "text-koji-orange border-2 border-koji-orange w-32 h-10 rounded-lg hover:bg-koji-orange hover:text-white"
+          }
+        />
+      </div>
     </form>
   );
 };

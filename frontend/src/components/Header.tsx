@@ -3,7 +3,7 @@ import uolLogo from "/uolLogo.png";
 export default function Header() {
   return (
     <header>
-      <h1 className="bg-nero flex justify-center py-4">
+      <h1 className="bg-nero flex justify-center py-2">
         <img
           src={uolLogo}
           alt="UOL - Seu universo online"

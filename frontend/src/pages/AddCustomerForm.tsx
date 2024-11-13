@@ -6,8 +6,8 @@ import { Subtitle } from "../components";
 export default function AddCustomerForm() {
   return (
     <CustomerProvider>
-      <main>
-        <Header />
+      <Header />
+      <main className="px-56 sm:px-5">
         <Subtitle
           title={"Novo usuário"}
           text={"Informe os campos a seguir para criar novo usuário:"}

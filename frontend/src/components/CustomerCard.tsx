@@ -25,18 +25,18 @@ export const CustomerCard: React.FC<CustomerCardProps> = ({
     Desativado: "bg-gray-300",
   };
   return (
-    <article className="flex border-2 py-6 sm:py-3 px-10 sm:px-6 justify-between">
-      <div className="w-[25%]">
-        <h4>{name}</h4>
-        <p>{email}</p>
+    <article className="flex flex-wrap border-2 py-6 sm:py-3 px-10 sm:px-3 items-center justify-between sm:justify-around break-words">
+      <div className="w-[25%] sm:w-[39%]">
+        <h4 className="font-medium text-gray-500">{name}</h4>
+        <p className="text-gray-500 font-light">{email}</p>
       </div>
-      <div className="w-[25%]">
-        <p>{cpf}</p>
-        <p>{phone}</p>
+      <div className="w-[25%] sm:w-[39%]">
+        <p className="font-medium text-gray-500">{cpf}</p>
+        <p className="text-gray-500 font-light">{phone}</p>
       </div>
-      <span className="flex flex-row w-[25%]">
+      <span className="flex flex-row w-[25%] sm:w-[22%] flex-wrap sm:justify-center">
         <div className={`rounded-full ${statusColor[status]} h-5 w-5 mr-2`} />
-        <p>{status}</p>
+        <p className="text-gray-500 font-light">{status}</p>
       </span>
       <Button
         title={"Editar"}

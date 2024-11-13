@@ -1,11 +1,12 @@
 import { createContext, useContext } from "react";
+import { Status } from "../types/Status";
 
 export type CustomerContextProps = {
   name: string;
   email: string;
   cpf: string;
   phone: string;
-  status: string;
+  status: Status;
   setCustomerData: (customerData: CustomerContextProps) => void;
   handleNameChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleEmailChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -19,7 +20,7 @@ export const CustomerContext = createContext<CustomerContextProps>({
   email: "",
   cpf: "",
   phone: "",
-  status: "",
+  status: "Desativado",
   setCustomerData: () => {},
   handleNameChange: () => {},
   handleEmailChange: () => {},
