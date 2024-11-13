@@ -18,10 +18,10 @@
 - [x] Configurar o frontend com React
 - [x] Desenvolver a tela de listagem de clientes
 - [x] Desenvolver a tela de criação de cliente
-  - [ ] Configurar validação de campos (CPF e telefone)
+  - [x] Configurar validação de campos (CPF e telefone)
 - [x] Desenvolver a tela de edição de cliente
-  - [ ] Configurar validação de campos (CPF e telefone)
-- [ ] Adicionar feedback para o usuário de sucesso ou erro após operações de criação ou edição
+  - [x] Configurar validação de campos (CPF e telefone)
+- [x] Adicionar feedback para o usuário de sucesso ou erro após operações de criação ou edição
 
 ## Qualidade e Organização do Código
 

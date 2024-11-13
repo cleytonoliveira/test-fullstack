@@ -53,7 +53,9 @@ export const CustomerList: React.FC = () => {
           status={customer.status}
         />
       ))}
-      <p className="text-gray-500 font-light">Exibindo {getCustomersText()}.</p>
+      <p className="text-gray-500 font-light pb-5">
+        Exibindo {getCustomersText()}.
+      </p>
     </section>
   );
 };
