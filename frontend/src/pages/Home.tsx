@@ -1,16 +1,17 @@
 import Header from "../components/Header";
-import { Button, Subtitle, CustomerList } from "../components";
+import { Subtitle, CustomerList } from "../components";
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Header />
-      <Subtitle
-        title={"Listagem de usuários"}
-        text={"Escolha um cliente para visualizar os detalhes"}
-      />
-      <Button title={"Novo cliente"} path={"/clientes/novo"} />
-      <CustomerList />
-    </main>
+      <main className="px-56 sm:px-5">
+        <Subtitle
+          title={"Listagem de usuários"}
+          text={"Escolha um cliente para visualizar os detalhes"}
+        />
+        <CustomerList />
+      </main>
+    </>
   );
 }

@@ -112,8 +112,15 @@ export const CustomerForm = () => {
         title={customerId ? "Editar" : "Criar"}
         path={"/clientes"}
         onClick={handleCustomerSubmit}
+        style="bg-koji-orange text-white w-32 h-10 rounded-lg"
       />
-      <Button title={"Voltar"} path={"/clientes"} />
+      <Button
+        title={"Voltar"}
+        path={"/clientes"}
+        style={
+          "text-koji-orange border-2 border-koji-orange w-32 h-10 rounded-lg hover:bg-koji-orange hover:text-white"
+        }
+      />
     </form>
   );
 };

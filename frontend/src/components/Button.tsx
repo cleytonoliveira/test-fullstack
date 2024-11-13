@@ -4,11 +4,17 @@ type ButtonProps = {
   title: string;
   path: string;
   onClick?: () => void;
+  style: string;
 };
 
-export const Button: React.FC<ButtonProps> = ({ title, path, onClick }) => {
+export const Button: React.FC<ButtonProps> = ({
+  title,
+  path,
+  onClick,
+  style,
+}) => {
   return (
-    <button onClick={onClick}>
+    <button onClick={onClick} className={style}>
       <Link to={path}>{title}</Link>
     </button>
   );

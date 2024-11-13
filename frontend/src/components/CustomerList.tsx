@@ -41,7 +41,7 @@ export const CustomerList: React.FC = () => {
   }, [location.state, customers.length]);
 
   return (
-    <>
+    <section className="space-y-6">
       {customers.map((customer: Customer) => (
         <CustomerCard
           key={customer.id}
@@ -54,6 +54,6 @@ export const CustomerList: React.FC = () => {
         />
       ))}
       <p>Exibindo {getCustomersText()}.</p>
-    </>
+    </section>
   );
 };
