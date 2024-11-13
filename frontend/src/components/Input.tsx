@@ -1,15 +1,22 @@
 type InputProps = {
+  defaultValue: string;
   type: string;
   placeholder: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const Input: React.FC<InputProps> = ({
+  defaultValue,
   type,
   placeholder,
   handleChange,
 }) => {
   return (
-    <input type={type} placeholder={placeholder} onChange={handleChange} />
+    <input
+      defaultValue={defaultValue}
+      type={type}
+      placeholder={placeholder}
+      onChange={handleChange}
+    />
   );
 };

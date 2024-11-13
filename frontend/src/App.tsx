@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 
 import AddCustomerForm from "./pages/AddCustomerForm";
+import EditClientForm from "./pages/EditClientForm";
 import Home from "./pages/Home";
 
 const router = createBrowserRouter([
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/clientes/novo",
     element: <AddCustomerForm />,
+  },
+  {
+    path: "/clientes/editar/:customerId",
+    element: <EditClientForm />,
   },
 ]);
 

@@ -1,16 +1,16 @@
 import Header from "../components/Header";
+import { Subtitle } from "../components";
 import { CustomerProvider } from "../context/CustomerProvider";
 import { CustomerForm } from "../components/CustomerForm";
-import { Subtitle } from "../components";
 
-export default function AddCustomerForm() {
+export default function EditClientForm() {
   return (
     <CustomerProvider>
       <main>
         <Header />
         <Subtitle
-          title={"Novo usuário"}
-          text={"Informe os campos a seguir para criar novo usuário:"}
+          title={"Editar usuário"}
+          text={"Altere os campos a seguir para editar o usuário:"}
         />
         <CustomerForm />
       </main>

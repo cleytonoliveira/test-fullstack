@@ -90,7 +90,7 @@ export default class CustomerRepository implements ICustomerRepository {
 
     const result = await this.db.run(query.text, query.values);
 
-    if (result.lastID) {
+    if (result.changes) {
       return await this.findById(id);
     } else {
       throw new Error('Customer not updated');

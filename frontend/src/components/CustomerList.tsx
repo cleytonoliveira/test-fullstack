@@ -9,6 +9,22 @@ export const CustomerList: React.FC = () => {
   const [customers, setCustomers] = useState([]);
   const location = useLocation();
 
+  function getCustomersText() {
+    const text = {
+      singular: "cliente",
+      plural: "clientes",
+      zero: "nenhum cliente",
+    };
+
+    if (customers.length === 0) {
+      return text.zero;
+    } else if (customers.length === 1) {
+      return `${customers.length} ${text.singular}`;
+    } else {
+      return `${customers.length} ${text.plural}`;
+    }
+  }
+
   useEffect(() => {
     const fetchCustomers = async () => {
       try {
@@ -19,10 +35,10 @@ export const CustomerList: React.FC = () => {
       }
     };
 
-    if (location.state?.shouldUpdate) {
+    if (!customers.length || location.state?.shouldUpdate) {
       fetchCustomers();
     }
-  }, [location.state]);
+  }, [location.state, customers.length]);
 
   return (
     <>
@@ -37,12 +53,7 @@ export const CustomerList: React.FC = () => {
           status={customer.status}
         />
       ))}
-      <p>
-        Exibindo{" "}
-        {customers.length === 1
-          ? `${customers.length} cliente`
-          : `${customers.length} clientes`}
-      </p>
+      <p>Exibindo {getCustomersText()}.</p>
     </>
   );
 };

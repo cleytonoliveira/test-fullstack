@@ -1,17 +1,22 @@
 type SelectProps = {
-  id: string;
+  defaultValue: string;
   options: string[];
   handleChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 };
 
 export const Select: React.FC<SelectProps> = ({
-  id,
+  defaultValue,
   options,
   handleChange,
 }) => {
   return (
-    <select name="" id={id} onChange={handleChange}>
-      <option value="" disabled selected>
+    <select
+      name="status"
+      id="status-select"
+      value={defaultValue}
+      onChange={handleChange}
+    >
+      <option value="" disabled>
         Status
       </option>
       {options.map((option) => (

@@ -1,11 +1,12 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, useContext } from "react";
 
-type CustomerContextProps = {
+export type CustomerContextProps = {
   name: string;
   email: string;
   cpf: string;
   phone: string;
   status: string;
+  setCustomerData: (customerData: CustomerContextProps) => void;
   handleNameChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleEmailChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleCpfChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -19,6 +20,7 @@ export const CustomerContext = createContext<CustomerContextProps>({
   cpf: "",
   phone: "",
   status: "",
+  setCustomerData: () => {},
   handleNameChange: () => {},
   handleEmailChange: () => {},
   handleCpfChange: () => {},
@@ -27,52 +29,3 @@ export const CustomerContext = createContext<CustomerContextProps>({
 });
 
 export const useCustomerContext = () => useContext(CustomerContext);
-
-export const CustomerProvider: React.FC<{ children: ReactNode }> = ({
-  children,
-}) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [cpf, setCpf] = useState("");
-  const [phone, setPhone] = useState("");
-  const [status, setStatus] = useState("");
-
-  function handleNameChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setName(event.target.value);
-  }
-
-  function handleEmailChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setEmail(event.target.value);
-  }
-
-  function handleCpfChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setCpf(event.target.value);
-  }
-
-  function handlePhoneChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setPhone(event.target.value);
-  }
-
-  function handleStatusChange(event: React.ChangeEvent<HTMLSelectElement>) {
-    setStatus(event.target.value);
-  }
-
-  return (
-    <CustomerContext.Provider
-      value={{
-        name,
-        email,
-        cpf,
-        phone,
-        status,
-        handleNameChange,
-        handleEmailChange,
-        handleCpfChange,
-        handlePhoneChange,
-        handleStatusChange,
-      }}
-    >
-      {children}
-    </CustomerContext.Provider>
-  );
-};

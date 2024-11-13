@@ -22,6 +22,19 @@ export default class CustomerController {
     }
   }
 
+  public async findById(req: Request, res: Response, next: NextFunction) {
+    try {
+      const id = parseInt(req.params.id);
+      const response = await this.customerService.findById(id);
+      res.status(200).json({
+        message: 'Customer fetched successfully',
+        data: response,
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+
   public async findAll(req: Request, res: Response, next: NextFunction) {
     try {
       const response = await this.customerService.findAll();

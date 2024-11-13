@@ -19,7 +19,7 @@
 - [x] Desenvolver a tela de listagem de clientes
 - [x] Desenvolver a tela de criação de cliente
   - [ ] Configurar validação de campos (CPF e telefone)
-- [ ] Desenvolver a tela de edição de cliente
+- [x] Desenvolver a tela de edição de cliente
   - [ ] Configurar validação de campos (CPF e telefone)
 - [ ] Adicionar feedback para o usuário de sucesso ou erro após operações de criação ou edição
 

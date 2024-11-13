@@ -22,3 +22,28 @@ export const createCustomer = async (customer: Omit<Customer, "id">) => {
     throw error;
   }
 };
+
+export const getCustomerById = async (customerId: string) => {
+  try {
+    const response = await api.get(`/customers/${customerId}`);
+    console.log(response.data.message);
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao buscar o cliente", error);
+    throw error;
+  }
+};
+
+export const updateCustomer = async (
+  customerId: string,
+  customer: Omit<Customer, "id">
+) => {
+  try {
+    const response = await api.put(`/customers/${customerId}`, customer);
+    console.log(response.data.message);
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao atualizar o cliente", error);
+    throw error;
+  }
+};
