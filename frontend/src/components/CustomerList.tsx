@@ -4,10 +4,12 @@ import { useLocation } from "react-router-dom";
 import { getCustomers } from "../services/customerService";
 import { CustomerCard } from "./CustomerCard";
 import { Customer } from "../types/Customer";
+import { Skeleton } from "./Skeleton";
 
 export const CustomerList: React.FC = () => {
   const [customers, setCustomers] = useState([]);
   const location = useLocation();
+  const [loading, setLoading] = useState(true);
 
   function getCustomersText() {
     const text = {
@@ -30,6 +32,7 @@ export const CustomerList: React.FC = () => {
       try {
         const { data } = await getCustomers();
         setCustomers(data);
+        setLoading(false);
       } catch (error) {
         console.error("Erro ao buscar os clientes", error);
       }
@@ -40,7 +43,9 @@ export const CustomerList: React.FC = () => {
     }
   }, [location.state, customers.length]);
 
-  return (
+  return loading ? (
+    <Skeleton />
+  ) : (
     <section className="space-y-6">
       {customers.map((customer: Customer) => (
         <CustomerCard
